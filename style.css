@@ -59,6 +59,8 @@ Custom CSS Begins here
 
 body{
   background-color: #20345d;
+  max-width: 1400px;
+
 }
 h1 {
   font-family: serif;
@@ -68,8 +70,12 @@ h1 {
   color: white;
   font-weight: 900;
 }
+.canvas-game {
+  display: flex;
+  justify-content: center;
+}
 canvas { 
   background: #459dd1;
   background: #30ba67;
-  margin-left:350px;
+  /* margin-left:350px; */
 }
