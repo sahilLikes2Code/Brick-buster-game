@@ -5,7 +5,7 @@ var x = canvas.width/2;
 var y = canvas.height-30;
 var dx = 2;
 var dy = -2;
-var paddleHeight = 15;
+var paddleHeight = 10;
 var paddleWidth = 100;
 var paddleX = (canvas.width-paddleWidth)/2;
 var rightPressed = false;
@@ -31,6 +31,7 @@ for(let i=0; i<brickColumnCount; i++) {
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
+document.addEventListener('touchmove', touchMoveHandler, false);
 
 function keyDownHandler(e) {
     if(e.keyCode == 39) {
@@ -48,6 +49,14 @@ function keyUpHandler(e) {
         leftPressed = false;
     }
 }
+
+function touchMoveHandler(e){
+    var relativeX = e.clientX - canvas.offsetLeft;
+    if (relativeX > 0 && relativeX < canvas.width){
+        paddleX = relativeX - paddleWidth/2;
+    }
+}
+
 function mouseMoveHandler(e) {
     var relativeX = e.clientX - canvas.offsetLeft;
     if(relativeX > 0 && relativeX < canvas.width) {
